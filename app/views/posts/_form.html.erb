@@ -4,7 +4,7 @@
   <% end %>
 </ul>
 
-
+<div class="post-container">
 <%= form_for @post do |f| %>
 <%# f is form object %>
 <div>
@@ -13,11 +13,18 @@
 </div>
 
 <div>
-  <%= f.cktext_area :body, class: "post-body-text",placeholder:"BODY", cols: "40", rows: "15"%>
+  <%= f.cktext_area :body, class: "post-body-text",placeholder:"BODY", cols: "10", rows: "15"%>
 </div>
 
 <div>
-  <%= f.submit %> <%= link_to "Cancel", post_path(@post) %>
+  <%= f.submit %>
+  <%# byebug %>
+  <% if @post.id != nil %>
+  <%= link_to "Cancel", post_path(@post) %>
+  <% else  %>
+  <%# byebug %>
+  <%= link_to "Cancel", posts_path %>
+  <% end  %>
 </div>
-
 <% end %>
+</div>
