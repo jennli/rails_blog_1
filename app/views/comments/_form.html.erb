@@ -1,0 +1,18 @@
+<ul>
+  <% @comment.errors.full_messages.each do |m| %>
+  <li class="notice"><%= m  %></li>
+  <% end %>
+</ul>
+
+<%= form_for @comment do |f| %>
+
+<div>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+</div>
+
+<div>
+  <%= f.submit %>
+</div>
+
+<% end %>

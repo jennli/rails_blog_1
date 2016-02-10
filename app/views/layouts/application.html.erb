@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag "blog.css" %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="navbar">
+    <%= link_to "HOME", root_path %> |
+    <%= link_to "POSTS", posts_path%> |
+    <%= link_to "NEW POST", new_post_path%> |
+    <%#= link_to "COMMENTS", comments_path%>
+    <%#= link_to "NEW COMMENT", new_comment_path%>
+    <%= link_to "ABOUT", about_path%>
+  </div>
+  <embed class="music" src="audio/nico.mp3" autostart="true" loop="true" hidden="true">
+
+    <img class="banner" src="http://static.tumblr.com/70dfa70cf643dcd167d8c6cfe5000ebb/xkeybq7/Dtimod4nd/tumblr_static_blog_banner_1.jpg"/>
+<!--
+    <img class="banner" src="http://images.freepicturesweb.com/img1/20/15/d/271.jpg"/> -->
+
+    <div class="notice"> <%= notice || alert %></div>
+
+    <%= yield %>
+  </body>
+  </html>

@@ -1,0 +1,20 @@
+<div class="search_bar">
+  <%= form_tag(posts_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "keyword" %>
+  <%= submit_tag "Search", :name => nil , class: "button" %>
+  <% end %>
+</div>
+
+<!-- <h1 class="title">WELCOME TO JENN LI'S BLOG</h1> -->
+<h2 class="menu">MY BLOG POSTS</h2>
+
+<div>
+  <% @posts.each do |p|  %>
+  <p class="content"><img class="title-image" src="http://orig12.deviantart.net/c5d7/f/2014/075/3/4/flame_heart_bullet_point___f2u_by_superheropattyfatty-d7ainue.gif"/> <%= link_to "#{p.title} ...", post_path(p) %>  <em class="date">(<%= p.created_at %>)</em> </p>
+
+  <% end %>
+</div>
+
+<div id="infinite-scrolling">
+  <%= will_paginate %>
+</div>

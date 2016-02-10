@@ -1,0 +1,23 @@
+<ul>
+  <% @post.errors.full_messages.each do |m|  %>
+  <li class="notice"><%= m %></li>
+  <% end %>
+</ul>
+
+
+<%= form_for @post do |f| %>
+<%# f is form object %>
+<div>
+  <%= f.text_field :title, class: "post-title-text" ,placeholder:"TITLE"%>
+
+</div>
+
+<div>
+  <%= f.cktext_area :body, class: "post-body-text",placeholder:"BODY", cols: "40", rows: "15"%>
+</div>
+
+<div>
+  <%= f.submit %> <%= link_to "Cancel", post_path(@post) %>
+</div>
+
+<% end %>
