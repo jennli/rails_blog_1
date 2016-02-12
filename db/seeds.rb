@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+["Music", "Travel", "Work", "Education", "Programming", "Movies", "Romance","Family","Random","Books"].each { |x| Category.create(title: x)}
+
+Post.all.each do |p|
+  p.update category_id: rand(10)+1
+end

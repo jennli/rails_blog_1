@@ -9,7 +9,11 @@
 <%# f is form object %>
 <div>
   <%= f.text_field :title, class: "post-title-text" ,placeholder:"TITLE"%>
+</div>
 
+<div>
+  <%= f.label :Category %>
+  <%= f.collection_select(:category_id, Category.all, :id, :title, prompt:true) %>
 </div>
 
 <div>

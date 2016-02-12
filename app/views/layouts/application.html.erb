@@ -9,12 +9,19 @@
 </head>
 <body>
   <div class="navbar">
-    <%= link_to "HOME", root_path %> |
-    <%= link_to "POSTS", posts_path%> |
-    <%= link_to "NEW POST", new_post_path%> |
+    <%= link_to "HOME", root_path %>&nbsp;|
+    <%= link_to "POSTS", posts_path%>&nbsp;|
+    <%= link_to "NEW POST", new_post_path%>&nbsp;|
     <%#= link_to "COMMENTS", comments_path%>
     <%#= link_to "NEW COMMENT", new_comment_path%>
-    <%= link_to "ABOUT", about_path%>
+    <%= link_to "ABOUT", about_path%> |
+    <% if user_signed_in? %>
+    <%= link_to "SIGN OUT", sessions_path, method: :delete %> |
+    Hello <%= current_user.first_name %>
+    <% else %>
+    <%= link_to "LOG IN", new_session_path %> |
+    <%= link_to "NEW USER", new_user_path %>
+    <% end %>
   </div>
   <embed class="music" src="audio/nico.mp3" autostart="true" loop="true" hidden="true">
 

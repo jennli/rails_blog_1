@@ -2,7 +2,7 @@ body {
   background-image: url("http://4.bp.blogspot.com/_JR1wtGyGotU/TVBw46_ZwAI/AAAAAAAACrg/QJx0sN3scP8/s1600/ButterflyLove2.gif");
   background-size: 106%;
 }
-.post-container, .comments-container{
+.post-container, .comments-container, .auth-container{
   background-color:white;
   margin-left: 21%;
   margin-right: 25%;
@@ -35,9 +35,9 @@ body {
 .navbar{
   font-family:sans-serif;
   background-color: white;
-  border-style:outset;
+  /*border-style:outset;*/
   position: fixed;
-  display:inline-flex;
+  display:inline-block;
   font-size: 15px;
   z-index: 1000;
 }

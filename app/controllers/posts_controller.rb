@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:show, :destroy, :edit, :update]
+  before_action :find_category, only: [:show, :destroy, :edit, :update]
 
   def index
     if params[:search]
@@ -12,7 +13,7 @@ class PostsController < ApplicationController
   def show
     # column_names = [:id, :body, :created_at, :updated_at, :post_id]
     # @comments = Comment.where(post_id: @post.id).pluck(*column_names).map{|x| Hash[column_names.zip(x)]}
-    @comments = @post.comments
+    @comments = @post.comments.order("created_at DESC")
   end
 
   def create
@@ -52,7 +53,11 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit([:title, :body])
+    params.require(:post).permit([:title, :body, :category_id])
+  end
+
+  def find_category
+    @category = @post.category
   end
 
 end

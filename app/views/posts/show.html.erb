@@ -1,7 +1,6 @@
 
 <div class="post-container">
-  <h1 class="title"><img class="title-image" src="http://lindawagner.net/blog/wp-content/uploads/2011/05/heart-bullet-point.jpg"/> <%= @post.title %> </h1>
-
+  <h1 class="title"><img class="title-image" src="http://lindawagner.net/blog/wp-content/uploads/2011/05/heart-bullet-point.jpg"/> <%= @post.title %>  </h1><strong> <br>#<%= @category.title %></strong>
   <p class="post-content"><%= raw@post.body %><br>
     <% if @post.updated_at > @post.created_at %>
     <p class="date"><%= "UPDATED AT:  #{@post.updated_at} " %></p>
