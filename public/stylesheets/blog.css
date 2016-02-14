@@ -42,8 +42,9 @@ body {
   z-index: 1000;
 }
 
-.post-content a{
+.post-title{
   color: black;
+  font-size: 20px;
   text-decoration:none;
 }
 
@@ -69,11 +70,17 @@ img {
   margin: 0 auto;
 }
 
-.post-content{
+.post-title{
   margin-bottom: 5%;
   /*font-family:monospace;*/
   font-size: 15px;
   font-family:sans-serif;
+}
+
+.post-body-preview{
+  font-family: monospace;
+  border-bottom: 1px dashed;
+  padding: 5%;
 }
 
 .footer{
