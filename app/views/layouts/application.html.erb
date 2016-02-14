@@ -3,19 +3,21 @@
 <head>
   <title>Blog</title>
   <%= stylesheet_link_tag "blog.css" %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <div class="navbar">
-    <%= link_to "My Posts", root_path %>&nbsp;|
-    <%= link_to "All Posts", posts_path%>&nbsp;|
+    <% if user_signed_in? %>
+    <%= link_to "My Posts", root_path %>
+    <% else %>
+    <%= link_to "Home", root_path %>
+    <% end %> |
+    <%= link_to "All Posts", posts_path%> |
     <% if user_signed_in? %>
     <%#= link_to "NEW POST", new_post_path%>
     <% end %>
-    <%#= link_to "COMMENTS", comments_path%>
-    <%#= link_to "NEW COMMENT", new_comment_path%>
     <%= link_to "About", about_path%> |
     <% if user_signed_in? %>
     <%= link_to "Sign out", sessions_path, method: :delete %> |
@@ -26,12 +28,8 @@
     <% end %>
   </div>
   <embed class="music" src="audio/Divorce_Papers_-_Arcade_Fire_Her_Soundtrack.mp3" autostart="true" loop="true" hidden="true">
-
     <%= image_tag "banner.jpg", class: :banner %>
-  <!--
-  <img class="banner" src="http://images.freepicturesweb.com/img1/20/15/d/271.jpg"/> -->
-  <div class="notice"> <%= notice || alert %></div>
-
-  <%= yield %>
-</body>
-</html>
+    <div class="notice"> <%= notice || alert %></div>
+    <%= yield %>
+  </body>
+  </html>

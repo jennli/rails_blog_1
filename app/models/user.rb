@@ -10,13 +10,8 @@ class User < ActiveRecord::Base
   uniqueness: true,
   format: /\A([\w+\-]\.?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
-  after_initialize :default_admin
-
   def full_name
     "#{first_name} #{last_name}"
   end
 
-  def default_admin
-    self.admin = false
-  end
 end

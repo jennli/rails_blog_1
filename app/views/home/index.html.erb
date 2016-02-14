@@ -11,8 +11,9 @@
 
 
   <% if user_signed_in? %>
-  <h1 class="title"><%= current_user.full_name %>'S POSTS</h1><br />
-   <%=link_to "New post", new_post_path  %> | <%= link_to "Edit profile", user_path(current_user) %>
+  <h1 class="title">MY POSTS</h1> |
+  <%=link_to "Create New Post", new_post_path  %> |
+  <%= link_to "Edit profile", user_path(current_user) %>
 
   <!-- <p class="directory">Welcome <%= link_to current_user.full_name, user_path(current_user) %></p> -->
   <!-- <h1 class="header">YOU HAVE <%= @posts.count %> POSTS</h1> -->

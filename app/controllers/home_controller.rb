@@ -7,6 +7,7 @@ class HomeController < ApplicationController
   end
 
   def about
+    @owner = User.find_by_admin true
   end
 
 end
