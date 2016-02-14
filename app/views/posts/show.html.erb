@@ -14,7 +14,10 @@
           <% if can? :manage, @post %>
           <%= link_to "Delete", @post, method: :delete, data: {confirm: "Are you sure?"} %> |<%= link_to "Edit", edit_post_path %> |
           <% end %>
+
+          <% if user_signed_in? %>
           <%= link_to "Comment", "#comment-textarea" %></p>
+          <% end %>
         </div>
       </div>
       <!-- <hr /> -->
@@ -38,6 +41,7 @@
 
           </div>
 
+          <% if user_signed_in? %>
           <div class="comments">
             <%= form_for [@post, Comment.new] do |f|  %>
             <div>
@@ -53,5 +57,10 @@
             <% end %>
 
           </div>
+          <% else %>
+          <div class="comments">
+            <%= link_to "Log in", new_session_path %> to leave a comment!</div>
+          <% end %>
+
 
         </div>

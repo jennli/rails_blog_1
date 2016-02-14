@@ -26,8 +26,6 @@ class PostsController < ApplicationController
       flash[:alert] = "Error, check errors below!"
       render :new
     end
-
-    @post
   end
 
   def new
