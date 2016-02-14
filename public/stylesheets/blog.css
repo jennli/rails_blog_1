@@ -43,17 +43,17 @@ body {
   z-index: 1000;
 }
 
-.post-title{
-  color: black;
-  font-size: 20px;
-  text-decoration:none;
-}
 
 a{
   color: grey;
 }
 a:hover {
   color: pink;
+}
+.post-title a{
+  color: black;
+  /*font-size: 20px;*/
+  text-decoration:none;
 }
 
 .header{

@@ -11,14 +11,14 @@
 
 
   <% if user_signed_in? %>
-  <h1 class="title"><%= current_user.full_name %>'S POSTS</h1> | <%= link_to "edit profile", user_path(current_user) %>
+  <h1 class="title"><%= current_user.full_name %>'S POSTS</h1> <%=link_to "New post", new_post_path  %> | <%= link_to "Edit profile", user_path(current_user) %>
 
   <!-- <p class="directory">Welcome <%= link_to current_user.full_name, user_path(current_user) %></p> -->
   <!-- <h1 class="header">YOU HAVE <%= @posts.count %> POSTS</h1> -->
   <div>
     <%  @posts.each do |p| %>
-    <%= image_tag "flame.gif", class: "title-image" %>
-    <p class="post-title"><%= link_to p.title, post_path(p) %> (posted on: <%= p.created_at.strftime("%d-%b-%Y") %>)</p>
+
+    <p class="post-title"><%= image_tag "flame.gif", class: "title-image" %> <%= link_to p.title, post_path(p) %> <span class="footer">(posted on: <%= p.created_at.strftime("%d-%b-%Y") %>)</span></p>
     <div  class="post-body-preview">
       <p><%= raw p.body %></p>
     </div>
