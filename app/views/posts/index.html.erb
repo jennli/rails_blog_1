@@ -9,7 +9,7 @@
 
   <!-- <h1 class="title">WELCOME TO JENN LI'S BLOG</h1> -->
 
-  <h1 class="header">MY BLOG POSTS</h2>
+  <h1 class="header">All BLOG POSTS</h2>
     <% @posts.each do |p|  %>
     <p class="post-content"><%= image_tag "flame.gif", class: "title-image" %> <%= link_to "#{p.title} ...", post_path(p) %>  <em class="footer">(<%= p.created_at %>)</em> </p>
 

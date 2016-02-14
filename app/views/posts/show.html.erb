@@ -24,6 +24,8 @@
       <div class="comments-container">
         <div class="comments">
           <p><strong>THIS POST HAS <%= @comments.size %> COMMENTS:</strong></p>
+
+          <% if @comments.size > 0 %>
           <ul>
             <% @comments.each do |x| %>
             <li class="comments"><%= x[:body] %> <br>
@@ -36,9 +38,8 @@
                 <% end %>
               </span></li>
               <% end %>
-
             </ul>
-
+            <% end %>
           </div>
 
           <% if user_signed_in? %>
@@ -60,7 +61,7 @@
           <% else %>
           <div class="comments">
             <%= link_to "Log in", new_session_path %> to leave a comment!</div>
-          <% end %>
+            <% end %>
 
 
-        </div>
+          </div>

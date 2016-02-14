@@ -1,17 +1,17 @@
 body {
   background-image: url("/images/butterflyLove2.gif");
-  background-size: 106%;
+  background-size: 100%;
 }
 .post-container, .comments-container, .auth-container{
   background-color:white;
-  margin-left: 21%;
-  margin-right: 25%;
+  margin-left: 20%;
+  margin-right: 30%;
   opacity: 0.9;
   padding: 3%;
 }
 
 .banner{
-  width: 50%;
+  width: 47%;
   height:20%;
 }
 
