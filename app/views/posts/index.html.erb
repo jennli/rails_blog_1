@@ -13,15 +13,15 @@
     <% @posts.each do |p|  %>
     <p class="post-title"><%= image_tag "flame.gif", class: "title-image" %> <%= link_to truncate(p.title, length: 35, separator: ' ', omission: ' ', escape: false), post_path(p) %>
       <em class="footer">(posted by <%= link_to p.user.full_name, user_path(p.user) %>)
-      <%#= p.created_at.strftime("%d-%b-%Y") %></em> <br />
-      <div class="post-body-preview">
-      <%= truncate(p.body, length: 350,  separator: ' ' , omission: '...', escape: false ) %>
-    </div>
-       </p>
+        <%#= p.created_at.strftime("%d-%b-%Y") %></em> <br />
+        <div class="post-body-preview">
+          <%= truncate(p.body, length: 350,  separator: ' ' , omission: '...', escape: false ) %>
+        </div>
+      </p>
 
-    <% end %>
+      <% end %>
 
-    <div id="infinite-scrolling">
-      <%= will_paginate %>
+      <div id="infinite-scrolling">
+        <%= will_paginate %>
+      </div>
     </div>
-  </div>

@@ -8,7 +8,6 @@ body {
   margin-right: 30%;
   opacity: 0.9;
   padding: 3%;
-  /*border-bottom: 1px dashed;*/
 }
 
 .banner{
@@ -45,17 +44,17 @@ body {
   z-index: 1000;
 }
 
+.post-title a{
+  color: black;
+  /*font-size: 20px;*/
+  text-decoration:none;
+}
 
 a{
   color: grey;
 }
 a:hover {
   color: pink;
-}
-.post-title a{
-  color: black;
-  /*font-size: 20px;*/
-  text-decoration:none;
 }
 
 .header{

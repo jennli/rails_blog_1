@@ -8,6 +8,9 @@
 
 ["Music", "Travel", "Work", "Education", "Programming", "Movies", "Romance","Family","Random","Books"].each { |x| Category.create(title: x)}
 
-Post.all.each do |p|
-  p.update category_id: rand(10)+1
-end
+# Post.all.each do |p|
+#   p.update category_id: rand(10)+1
+# end
+
+# reset this password immediately
+User.create(first_name: "Jennifer Li", last_name: "Li", email: "ldnjennifer@hotmail.com", password: 123456, confirm_password: 123456, admin: true)
