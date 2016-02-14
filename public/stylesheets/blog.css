@@ -1,5 +1,5 @@
 body {
-  background-image: url("http://4.bp.blogspot.com/_JR1wtGyGotU/TVBw46_ZwAI/AAAAAAAACrg/QJx0sN3scP8/s1600/ButterflyLove2.gif");
+  background-image: url("/images/butterflyLove2.gif");
   background-size: 106%;
 }
 .post-container, .comments-container, .auth-container{
@@ -43,14 +43,15 @@ body {
 }
 
 a{
-  color: rgb(65, 64, 63);
-  text-decoration: none;
+  color: rgba(9, 14, 9, 0.97);
+  text-decoration:none;
 }
 a:hover {
   color: pink;
+  text-decoration:underline;;
 }
 
-.menu{
+.header{
   font-family: monospace;
   font-size: 20px;
   color:rgb(107, 11, 83)
@@ -72,7 +73,7 @@ img {
   font-family:sans-serif;
 }
 
-.date{
+.footer{
   font-family: monospace;
   font-size: 10px;
   color:grey;
@@ -91,13 +92,13 @@ img {
   opacity: 0.8;
 }
 
-.comments span{
+/*.comments span{
   font-size: 12px;
   font-family: sans-serif;
   color:brown;
-}
+}*/
 .comments ul{
-  list-style-image: url('http://orig02.deviantart.net/4057/f/2012/273/0/0/strawberry_bullet_point_by_nutellalicious-d5gf39r.png');
+  list-style-image: url('/images/strawberry.png');
 }
 
 .post-title-text, .post-body-text{

@@ -3,14 +3,22 @@
 .directory{
   text-align: center;
   font-size: 30px;
+  font-family: cursive;
 }
-
 </style>
 
-<h1 class="title">JENNIFER LI'S <br><br>AWESOME BLOG</h1>
+<div class="auth-container">
 
-<div class="directory">
+  <h1 class="title">JENNIFER LI'S BLOG</h1>
 
-  <%= link_to "Browse Posts", posts_path  %> 
+  <div class="directory">
+
+<% if user_signed_in? %>
+Welcome <%= link_to current_user.full_name, user_path(current_user) %>
+<% else %>
+    <%= link_to "Login", new_session_path  %> |
+    <%= link_to "Sign up", new_user_path  %> |
+<% end %>
+  </div>
 
 </div>

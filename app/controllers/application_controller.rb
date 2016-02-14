@@ -14,8 +14,9 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_user
-  
+
   def login(user)
+    user.update last_signed_in: DateTime.now
     session[:user_id] = user.id
   end
 end

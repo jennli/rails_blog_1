@@ -1,0 +1,10 @@
+<div class="auth-container">
+
+  <h3 class="header"><%= @user.full_name %></h3>
+  <p>Email address: <%= @user.email %></p>
+  <p>Last signed in at: <%= @user.last_signed_in.strftime("%d-%b-%Y at %I:%M%p")
+  %></p>
+  <% if can? :manage, @user %>
+  <%= link_to "Edit Profile", edit_user_path(@user)  %>
+  <% end %>
+</div>

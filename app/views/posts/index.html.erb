@@ -1,5 +1,5 @@
 <div class="post-container">
-  
+
   <div class="search_bar">
     <%= form_tag(posts_path, :method => "get", id: "search-form") do %>
     <%= text_field_tag :search, params[:search], placeholder: "keyword" %>
@@ -9,9 +9,9 @@
 
   <!-- <h1 class="title">WELCOME TO JENN LI'S BLOG</h1> -->
 
-  <h1 class="menu">MY BLOG POSTS</h2>
+  <h1 class="header">MY BLOG POSTS</h2>
     <% @posts.each do |p|  %>
-    <p class="post-content"><img class="title-image" src="http://orig12.deviantart.net/c5d7/f/2014/075/3/4/flame_heart_bullet_point___f2u_by_superheropattyfatty-d7ainue.gif"/> <%= link_to "#{p.title} ...", post_path(p) %>  <em class="date">(<%= p.created_at %>)</em> </p>
+    <p class="post-content"><%= image_tag "flame.gif", class: "title-image" %> <%= link_to "#{p.title} ...", post_path(p) %>  <em class="footer">(<%= p.created_at %>)</em> </p>
 
     <% end %>
 
