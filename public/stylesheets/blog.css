@@ -42,13 +42,16 @@ body {
   z-index: 1000;
 }
 
-a{
-  color: rgba(9, 14, 9, 0.97);
+.post-content a{
+  color: black;
   text-decoration:none;
+}
+
+a{
+  color: grey;
 }
 a:hover {
   color: pink;
-  text-decoration:underline;;
 }
 
 .header{
@@ -93,9 +96,9 @@ img {
 }
 
 /*.comments span{
-  font-size: 12px;
-  font-family: sans-serif;
-  color:brown;
+font-size: 12px;
+font-family: sans-serif;
+color:brown;
 }*/
 .comments ul{
   list-style-image: url('/images/strawberry.png');
