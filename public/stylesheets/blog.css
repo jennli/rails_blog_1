@@ -8,6 +8,7 @@ body {
   margin-right: 30%;
   opacity: 0.9;
   padding: 3%;
+  /*border-bottom: 1px dashed;*/
 }
 
 .banner{
@@ -71,14 +72,14 @@ img {
 }
 
 .post-title{
-  margin-bottom: 5%;
-  /*font-family:monospace;*/
+  /*margin-bottom: 5%;*/
+  /*font-family:cursive;*/
   font-size: 15px;
   font-family:sans-serif;
 }
 
 .post-body-preview{
-  font-family: monospace;
+  /*font-family: monospace;*/
   border-bottom: 1px dashed;
   padding: 5%;
 }

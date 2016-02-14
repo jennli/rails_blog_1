@@ -12,4 +12,8 @@ has_many :comments, :dependent => :destroy
     where("title ILIKE ? OR body ILIKE? ", "%#{str}%", "%#{str}%")
   end
 
+  def self.search_by_user(user)
+    where("user_id = ?", user.id)
+  end
+
 end

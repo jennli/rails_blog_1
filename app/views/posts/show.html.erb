@@ -1,7 +1,7 @@
 
 <div class="post-container">
   <h1 class="title"><%= image_tag "heart.jpg", class: "title-image" %> <%= @post.title %>  </h1><strong> <br>#<%= @category.title %></strong>
-  <p class="post-content"><%= raw@post.body %><br>
+  <p class="post-content"><%= raw@post.body %></p><br>
     <p class="footer">
       <% if @post.updated_at > @post.created_at %>
       <%= "UPDATED AT:  #{@post.updated_at} " %>
