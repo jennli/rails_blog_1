@@ -4,7 +4,7 @@
   height:20%;
 }
 
-@media screen and (min-width: 1243px) {
+@media screen and (min-width: 960px) {
   body {
     background-image: url("/images/butterflyLove2.gif");
     background-size: 100%;

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
   <title>Blog</title>
   <%= stylesheet_link_tag "main" %>
   <%= stylesheet_link_tag "bootstrap" %>
@@ -18,7 +19,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%=image_tag "heart-logo", class: "navbar-brand" %>
+        <%=image_tag "heart-logo.png", class: "navbar-brand" %>
         <%= link_to "LDN-BLOG", root_path, class: "navbar-brand" %>
       </div>
 
@@ -64,8 +65,8 @@
   </div>
   <% end %>
 
-<%= image_tag "banner.jpg", class: :banner %>
-<%= yield %>
+  <%= image_tag "banner.jpg", class: :banner %>
+  <%= yield %>
 
 </body>
 </html>
