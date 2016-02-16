@@ -10,7 +10,8 @@
       <% end %>
     </ul>
   </nav>
-  <h2><%= image_tag "heart.jpg", class: "title-image" %> <%= @post.title %> </h2><strong> <br>#<%= @category.title %></strong>
+  <h2><%= image_tag "heart.jpg", class: "title-image" %> <%= @post.title %> </h2>
+  <span class="label label-warning"><%= @category.title %></span>
   <p class="post-content"><%= raw@post.body %></p><br>
   <p class="footer">
     <% if @post.updated_at > @post.created_at %>
@@ -21,50 +22,50 @@
 
     <div>
       <p>
-        <% if can? :manage, @post %>
-        <%= link_to "Delete", @post, method: :delete, data: {confirm: "Are you sure?"} %> | <%= link_to "Edit", edit_post_path %> |
-        <% end %>
-
         <% if user_signed_in? %>
-        <%= link_to "Comment", "#comment-textarea" %></p>
+        <%= link_to "Comment", "#comment-textarea", class: "btn btn-info btn-sm" %>
+        <% end %>
+        <% if can? :manage, @post %>
+        <%= link_to "Edit", edit_post_path, class:"btn btn-danger btn-sm" %>  <%= link_to "Delete", @post, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-default btn-sm" %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+  <!-- <hr /> -->
+  <div class="comments-container">
+    <div class="comments">
+      <p><strong>THIS POST HAS <%= @comments.size %> COMMENTS:</strong></p>
+
+      <% if @comments.size > 0 %>
+      <ul>
+        <% @comments.each do |x| %>
+        <li class="comments"><%= x[:body] %> <br>
+          <span class="footer"><%= x[:created_at] %> by <%=link_to x.user.full_name, user_path(x.user) %>
+            <% if can? :destroy, x %>
+            <%= link_to "Delete", post_comment_path(@post, x), method: :delete, data: {confirm: "Are you sure?"}, class:"btn btn-default btn-xs"%>
+            <% end %>
+            <% if can? :manage, x %>
+            <%= link_to "Edit", post_comment_path(@post, x),class:"btn btn-default btn-xs" %>
+            <% end %>
+          </span></li>
+          <% end %>
+        </ul>
         <% end %>
       </div>
-    </div>
-    <!-- <hr /> -->
-    <div class="comments-container">
+
       <div class="comments">
-        <p><strong>THIS POST HAS <%= @comments.size %> COMMENTS:</strong></p>
-
-        <% if @comments.size > 0 %>
-        <ul>
-          <% @comments.each do |x| %>
-          <li class="comments"><%= x[:body] %> <br>
-            <span class="footer"><%= x[:created_at] %> by <%=link_to x.user.full_name, user_path(x.user) %>
-              <% if can? :destroy, x %>
-              <%= link_to "Delete", post_comment_path(@post, x), method: :delete, data: {confirm: "Are you sure?"}%>
-              <% end %>
-              <% if can? :manage, x %>
-              |<%= link_to "Edit", post_comment_path(@post, x) %>
-              <% end %>
-            </span></li>
-            <% end %>
-          </ul>
-          <% end %>
+        <% if user_signed_in? %>
+        <%= form_for [@post, Comment.new] do |f|  %>
+        <div class="form-group">
+          <%= f.label :body, value="Comment" %><br/>
+          <%= f.text_area :body , class: "form-control", id: "comment-textarea", rows: "3" %>
+          <%= f.hidden_field :post_id, value: @post.id %>
         </div>
-
-        <div class="comments">
-          <% if user_signed_in? %>
-          <%= form_for [@post, Comment.new] do |f|  %>
-          <div class="form-group">
-            <%= f.label :body, value="Comment" %><br/>
-            <%= f.text_area :body , class: "form-control", id: "comment-textarea", rows: "3" %>
-            <%= f.hidden_field :post_id, value: @post.id %>
-          </div>
-          <div class="form-group">
-            <%= f.submit class:"btn btn-info" %>
-          </div>
-          <% end %>
-          <% else %>
-          <%= link_to "Log in", new_session_path %> to leave a comment!</div>
-          <% end %>
+        <div class="form-group">
+          <%= f.submit class:"btn btn-info" %>
         </div>
+        <% end %>
+        <% else %>
+        <%= link_to "Log in", new_session_path %> to leave a comment!</div>
+        <% end %>
+      </div>

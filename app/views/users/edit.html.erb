@@ -22,8 +22,9 @@
       <%= f.email_field :email, class:"form-control" %>
     </div>
     <div class="form-group">
-      <%= f.submit class:"btn btn-default btn-sm" %>
-    <%= link_to "Change password", user_password_path(@user), class:"btn btn-danger btn-sm"%>
+      <%= f.submit class:"btn btn-info btn-sm" %>
+      <%= link_to "Change password", user_password_path(@user), class:"btn btn-danger btn-sm"%>
+      <%= link_to "Cancel", user_path(@user), class:"btn btn-default btn-sm"%>
   </div>
     <% end %>
   </div>

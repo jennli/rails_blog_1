@@ -1,17 +1,7 @@
 <div class="post-container">
-
-  <!-- <div class="search_bar">
-    <%= form_tag(posts_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "keyword" %>
-    <%= submit_tag "Search", :name => nil , class: "button" %>
-    <% end %>
-  </div> -->
-
-  <!-- <h1 class="title">WELCOME TO JENN LI'S BLOG</h1> -->
-
   <h2 class="header">All BLOG POSTS</h2>
     <% @posts.each do |p|  %>
-    <p class="post-title"><%= image_tag "flame.gif", class: "title-image" %> <%= link_to truncate(p.title, length: 35, separator: ' ', omission: ' ', escape: false), post_path(p) %>
+    <p class="post-title"><%= image_tag "flame.gif", class: "title-image" %> <%= link_to truncate(p.title, length: 35, separator: ' ', omission: ' ', escape: false), post_path(p), class: "post-title" %>
       <em class="footer">(posted by <%= link_to p.user.full_name, user_path(p.user) %>)
         <%#= p.created_at.strftime("%d-%b-%Y") %></em> <br />
         <div class="post-body-preview">
