@@ -6,11 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-["Music", "Travel", "Work", "Education", "Programming", "Movies", "Romance","Family","Random","Books"].each { |x| Category.create(title: x)}
-
 # Post.all.each do |p|
 #   p.update category_id: rand(10)+1
 # end
 
+
+# only run the following once
+# ["Music", "Travel", "Work", "Education", "Programming", "Movies", "Romance","Family","Random","Books"].each { |x| Category.create(title: x)}
+
+
 # reset this password immediately
-User.create(first_name: "Jennifer Li", last_name: "Li", email: "ldnjennifer@hotmail.com", password: 123456, confirm_password: 123456, admin: true)
+# User.create(first_name: "Jennifer Li", last_name: "Li", email: "ldnjennifer@hotmail.com", password: 123456, confirm_password: 123456, admin: true)

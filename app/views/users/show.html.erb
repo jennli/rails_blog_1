@@ -1,10 +1,16 @@
 <div class="auth-container">
-
   <h3 class="header"><%= @user.full_name %></h3>
-  <p>Email address: <%= @user.email %></p>
-  <p>Last signed in at: <%= @user.last_signed_in.strftime("%d-%b-%Y at %I:%M%p")
-  %></p>
-  <% if can? :manage, @user %>
-  <%= link_to "Edit Profile", edit_user_path(@user)  %>
-  <% end %>
-</div>
+
+  <div class="panel panel-info">
+    <div class="panel-heading">Profile</div>
+      <div class="panel-body">
+        <p>Email: <br> <%= @user.email %></p>
+        <p>Last signed in:  <br> <%= @user.last_signed_in.strftime("%d-%b-%Y at %I:%M%p")
+        %></p>
+        <p>Total posts: <%= @user_post_count %></p>
+      </div>
+    </div>
+
+      <% if can? :manage, @user %>
+      <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-default"  %>
+      <% end %>

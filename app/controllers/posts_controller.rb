@@ -4,9 +4,9 @@ class PostsController < ApplicationController
 
   def index
     if params[:search]
-      @posts = Post.search(params[:search]).paginate(:page=>params[:page]).order("updated_at DESC")
+      @posts = Post.search(params[:search]).paginate(:page=>params[:page]).order("id DESC")
     else
-      @posts = Post.all.paginate(:page=>params[:page]).order("updated_at DESC")
+      @posts = Post.all.paginate(:page=>params[:page]).order("id DESC")
     end
   end
 
@@ -23,7 +23,7 @@ class PostsController < ApplicationController
       # flash[:notice] = "Question created successfully"
       redirect_to post_path(@post), notice: "post created successfully"
     else
-      flash[:alert] = "Error, check errors below!"
+      flash[:alert] = "Check errors below!"
       render :new
     end
   end

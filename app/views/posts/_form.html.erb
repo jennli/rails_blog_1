@@ -1,30 +1,32 @@
 
-  <div class="notice"><%= @post.errors.full_messages.join(",") %></div>
 
 <div class="post-container">
+  <div class="alert"><%= @post.errors.full_messages.join(",") %></div>
 <%= form_for @post do |f| %>
 <%# f is form object %>
-<div>
-  <%= f.text_field :title, class: "post-title-text" ,placeholder:"TITLE"%>
+<div class="form-group form-group-lg">
+  <%= f.label :title %>
+  <%= f.text_field :title, class: "form-control" ,placeholder:"TITLE"%>
 </div>
 
-<div>
+<div class="form-group">
   <%= f.label :Category %>
-  <%= f.collection_select(:category_id, Category.all, :id, :title, prompt:true) %>
+  <%= f.collection_select(:category_id, Category.all, :id, :title, prompt:true)  %>
+</div>
+
+<div class="form-group">
+  <%= f.label :blog %>
+  <%= f.text_area :body, class: "form-control",placeholder:"BODY", rows: "7"%>
 </div>
 
 <div>
-  <%= f.text_area :body, class: "post-body-text",placeholder:"BODY", cols: "10", rows: "10"%>
-</div>
-
-<div>
-  <%= f.submit %>
+  <%= f.submit class:"btn btn-info" %>
   <%# byebug %>
   <% if @post.id != nil %>
   <%= link_to "Cancel", post_path(@post) %>
   <% else  %>
   <%# byebug %>
-  <%= link_to "Cancel", posts_path %>
+  <%= link_to "Cancel", posts_path, class:"btn btn-default" %>
   <% end  %>
 </div>
 <% end %>

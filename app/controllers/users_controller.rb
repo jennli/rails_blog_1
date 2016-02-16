@@ -53,6 +53,7 @@ class UsersController < ApplicationController
 
   def find_user
     @user = User.find params[:id]
+    @user_post_count = Post.count_by_user(@user)
   end
 
 end
