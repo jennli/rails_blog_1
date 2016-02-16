@@ -1,11 +1,12 @@
 <div class="auth-container">
 
-  <h1 class="title">Create User</h1>
+  <h1>Create User</h1>
 
+  <% if @user.errors.full_messages.size > 0 %>
   <div class="alert">
     <%= @user.errors.full_messages.join(",") %>
   </div>
-
+  <% end %>
   <div>
     <%= form_for @user do |f|%>
     <div class="form-group">

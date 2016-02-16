@@ -2,10 +2,11 @@
 
   <h3 class="title">Edit User Profile</h3>
 
+<% if @user.errors.full_messages.size > 0 %>
   <div class="notice">
     <%= @user.errors.full_messages.join(",") %>
   </div>
-
+<% end %>
   <div>
     <%= form_for @user do |f|%>
     <div class="form-group">

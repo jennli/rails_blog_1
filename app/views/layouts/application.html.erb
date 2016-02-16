@@ -21,17 +21,19 @@
         </button>
         <%=image_tag "heart-logo.png", class: "navbar-brand" %>
         <%= link_to "LDN-BLOG", root_path, class: "navbar-brand" %>
+        <% if user_signed_in? %>
+        <%= link_to "SIGN OUT", sessions_path, method: :delete, class: "navbar-brand" %>
+        <% else %>
+        <%= link_to "LOG IN", new_session_path, class: "navbar-brand" %>
+        <% end %>
       </div>
-
       <div class="collapse navbar-collapse" id="main-navbar">
         <ul class="nav navbar-nav navbar-left">
-          <li><% if user_signed_in? %></li>
+          <% if user_signed_in? %>
+          <li><%= link_to "#{current_user.full_name}'s PROFILE", user_path(current_user)%></li>
           <li><%= link_to "MY POSTS", root_path %></li>
-          <li><%= link_to "#{current_user.full_name}'s PROFILE", user_path(current_user) %></li>
           <li><%= link_to "NEW POST", new_post_path%></li>
-          <li><%= link_to "SIGN OUT", sessions_path, method: :delete %></li>
           <% else %>
-          <li><%= link_to "LOG IN", new_session_path %></li>
           <li><%= link_to "NEW USER", new_user_path %></li>
           <% end %>
           <li><%= link_to "ALL POSTS", posts_path%></li>

@@ -10,7 +10,7 @@
       <% end %>
     </ul>
   </nav>
-  <h1 class="title"><%= image_tag "heart.jpg", class: "title-image" %> <%= @post.title %>  </h1><strong> <br>#<%= @category.title %></strong>
+  <h2><%= image_tag "heart.jpg", class: "title-image" %> <%= @post.title %> </h2><strong> <br>#<%= @category.title %></strong>
   <p class="post-content"><%= raw@post.body %></p><br>
   <p class="footer">
     <% if @post.updated_at > @post.created_at %>
