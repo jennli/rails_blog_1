@@ -20,11 +20,11 @@
           <span class="icon-bar"></span>
         </button>
         <%=image_tag "heart-logo.png", class: "navbar-brand" %>
-        <%= link_to "LDN-BLOG", root_path, class: "navbar-brand" %>
+        <%= link_to "LDN-BLOG", posts_path, class: "navbar-brand" %>
         <% if user_signed_in? %>
-        <%= link_to "SIGN OUT", sessions_path, method: :delete, class: "navbar-brand" %>
+        <%= link_to "Sign out", sessions_path, method: :delete, class: "navbar-brand" %>
         <% else %>
-        <%= link_to "LOG IN", new_session_path, class: "navbar-brand" %>
+        <%= link_to "Log in", new_session_path, class: "navbar-brand" %>
         <% end %>
       </div>
       <div class="collapse navbar-collapse" id="main-navbar">
