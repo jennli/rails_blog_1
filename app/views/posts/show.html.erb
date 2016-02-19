@@ -32,11 +32,11 @@
 
         <% fav = @post.fav_for(current_user) %>
         <% if fav %>
-        <%#= link_to fa_icon('heart'), post_favourite_path(@post, fav), method: :delete  %>
-        <%= link_to "Added to Favourites!!", post_favourite_path(@post, fav), method: :delete, class: "btn btn-danger btn-sm"  %>
+        <%= link_to fa_icon('heart'), post_favourite_path(@post, fav), method: :delete  %>
+        <%#= link_to "Added to Favourites!!", post_favourite_path(@post, fav), method: :delete, class: "btn btn-danger btn-sm"  %>
         <% else %>
-        <%#= link_to fa_icon('heart-o'), post_favourites_path(@post), method: :post  %>
-        <%= link_to "Add to Favourites", post_favourites_path(@post), method: :post, class: "btn btn-default btn-sm"  %>
+        <%= link_to fa_icon('heart-o'), post_favourites_path(@post), method: :post  %>
+        <%#= link_to "Add to Favourites", post_favourites_path(@post), method: :post, class: "btn btn-default btn-sm"  %>
         <% end %>
         <span class="badge">(<%= @post.favourite_users.count %>)</span>
       </p>
