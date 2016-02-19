@@ -3,6 +3,9 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_many :comments, :dependent => :destroy
 
+  has_many :favourites, dependent: :destroy
+  has_many :favourite_users, through: :favourites, source: :user
+
   validates :title, presence: true, uniqueness:true
   validates :category_id, presence: true
 
@@ -26,6 +29,10 @@ class Post < ActiveRecord::Base
 
   def self.count_by_user(user)
     where("user_id = ?", user.id).all.count
+  end
+
+  def fav_for(user)
+    favourites.find_by_user_id user
   end
 
 

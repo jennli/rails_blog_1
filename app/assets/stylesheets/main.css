@@ -38,7 +38,8 @@ img {
 
 .post-title{
 padding-top: 10%;
-color: rgb(85, 175, 247);
+/*color: rgb(85, 175, 247);*/
+color: grey;
   font-size: 20px;
   font-family:sans-serif;
 }
