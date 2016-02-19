@@ -24,18 +24,21 @@
       <p>
         <% if user_signed_in? %>
         <%= link_to "Comment", "#comment-textarea", class: "btn btn-default btn-sm" %>
-        <% end %>
+
         <% if can? :manage, @post %>
         <%= link_to "Edit", edit_post_path, class:"btn btn-default btn-sm" %>  <%= link_to "Delete", @post, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-default btn-sm" %>
         <% end %>
+        <% end %>
+
         <% fav = @post.fav_for(current_user) %>
         <% if fav %>
         <%#= link_to fa_icon('heart'), post_favourite_path(@post, fav), method: :delete  %>
-        <%= link_to "Add to Favourites", post_favourite_path(@post, fav), method: :delete, class: "btn btn-default btn-sm"  %>
+        <%= link_to "Added to Favourites!!", post_favourite_path(@post, fav), method: :delete, class: "btn btn-danger btn-sm"  %>
         <% else %>
         <%#= link_to fa_icon('heart-o'), post_favourites_path(@post), method: :post  %>
-        <%= link_to "Added to Favourites!", post_favourites_path(@post), method: :post, class: "btn btn-danger btn-sm"  %>
+        <%= link_to "Add to Favourites", post_favourites_path(@post), method: :post, class: "btn btn-default btn-sm"  %>
         <% end %>
+        (<%= @post.favourite_users.count %>)
       </p>
     </div>
   </div>
