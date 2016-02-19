@@ -31,6 +31,7 @@
         <ul class="nav navbar-nav navbar-left">
           <% if user_signed_in? %>
           <li><%= link_to "#{current_user.full_name}'s PROFILE", user_path(current_user)%></li>
+          <li><%= link_to "MY FAVOURITES", favourites_path %></li>
           <li><%= link_to "MY POSTS", root_path %></li>
           <li><%= link_to "NEW POST", new_post_path%></li>
           <% else %>

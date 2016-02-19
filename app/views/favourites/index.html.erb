@@ -1,5 +1,5 @@
 <div class="post-container">
-  <h2 class="header">All BLOG POSTS</h2>
+  <h2 class="header">MY FAVOURITE BLOG POSTS</h2>
   <% @posts.each do |p|  %>
   <p class="post-title"><%= image_tag "flame.gif", class: "title-image" %> <%= link_to truncate(p.title, length: 35, separator: ' ', omission: ' ', escape: false), post_path(p), class: "post-title" %>
     <em class="footer">(posted by <%= link_to p.user.full_name, user_path(p.user) %>)
@@ -7,15 +7,11 @@
       <% if user_signed_in? && p.fav_for(current_user) %>
       <span class="label label-danger">My Favourite!</span>
       <% end %>
-      <br /> 
+      <br />
       <div class="post-body-preview">
         <%= truncate(p.body, length: 350,  separator: ' ' , omission: '...', escape: false ) %>
       </div>
     </p>
 
     <% end %>
-
-    <div id="infinite-scrolling">
-      <%= will_paginate %>
-    </div>
   </div>

@@ -2,6 +2,7 @@ class FavouritesController < ApplicationController
   before_action :find_post, only: [:create, :destroy]
 
   def index
+    @posts = current_user.favourite_posts
   end
 
   def create

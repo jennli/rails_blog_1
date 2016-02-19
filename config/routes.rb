@@ -22,6 +22,9 @@ Rails.application.routes.draw do
     resources :favourites, only: [:create, :destroy]
   end
 
+  scope :post do
+    resources :favourites, only:[:index]
+  end
   resources :comments, only: [] do
     resources :users, only: [:new, :create, :edit, :update]
   end

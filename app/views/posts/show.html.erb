@@ -38,7 +38,7 @@
         <%#= link_to fa_icon('heart-o'), post_favourites_path(@post), method: :post  %>
         <%= link_to "Add to Favourites", post_favourites_path(@post), method: :post, class: "btn btn-default btn-sm"  %>
         <% end %>
-        (<%= @post.favourite_users.count %>)
+        <span class="badge">(<%= @post.favourite_users.count %>)</span>
       </p>
     </div>
   </div>
