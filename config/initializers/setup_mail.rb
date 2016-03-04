@@ -4,5 +4,6 @@ ActionMailer::Base.smtp_settings = {
   enable_starttls_auto: true,
   authentication:       :plain,
   user_name:            ENV["email_user_name"],
+  domain:                "ldn-rails-blog.herokuapp.com",
   password:             ENV["email_password"]
 }
