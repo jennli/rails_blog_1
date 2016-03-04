@@ -3,9 +3,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
-
     if @user.save
-      login(@user)
+      sign(@user)
       redirect_to root_path, notice: "Account created!"
     else
       flash[:alert] = "Error creating user. see error below"

@@ -8,12 +8,21 @@ class PostsController < ApplicationController
     else
       @posts = Post.all.paginate(:page=>params[:page]).order("id DESC")
     end
+
+    respond_to do |format|
+      format.html{render}
+      format.json{render json: @posts}
+    end
   end
 
   def show
     # column_names = [:id, :body, :created_at, :updated_at, :post_id]
     # @comments = Comment.where(post_id: @post.id).pluck(*column_names).map{|x| Hash[column_names.zip(x)]}
     @comments = @post.comments.order("created_at DESC")
+    respond_to do |format|
+      format.html{render}
+      format.json{render json: {post: @post, comments: @comments}}
+    end
   end
 
   def create

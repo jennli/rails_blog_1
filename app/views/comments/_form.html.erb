@@ -1,18 +1,10 @@
-<ul>
-  <% @comment.errors.full_messages.each do |m| %>
-  <li class="notice"><%= m  %></li>
-  <% end %>
-</ul>
-
-<%= form_for @comment do |f| %>
-
-<div>
-  <%= f.label :body %>
-  <%= f.text_area :body %>
+<%= form_for [@post, Comment.new], remote:true do |f|  %>
+<div class="form-group">
+  <%= f.label :body, value="Comment" %><br/>
+  <%= f.text_area :body , class: "form-control", id: "comment-textarea", rows: "3" %>
+  <%= f.hidden_field :post_id, value: @post.id %>
 </div>
-
-<div>
-  <%= f.submit %>
+<div class="form-group">
+  <%= f.submit class:"btn btn-info" %>
 </div>
-
 <% end %>

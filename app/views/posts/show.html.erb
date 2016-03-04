@@ -15,27 +15,26 @@
   <p class="post-content"><%= raw@post.body %></p><br>
   <p class="footer">
     <% if @post.updated_at > @post.created_at %>
-    <%= "UPDATED AT:  #{@post.updated_at} " %>
+    <%= "UPDATED AT:  #{formatted_time(@post.updated_at)} " %>
     <% else %>
-    <%="CREATED AT: #{@post.created_at}" %>
+    <%="CREATED AT: #{formatted_time(@post.created_at)}" %>
     <% end %> by <%= link_to @post.user.full_name, user_path(@post.user) %></p>
 
     <div>
       <p>
         <% if user_signed_in? %>
-        <%= link_to "Comment", "#comment-textarea", class: "btn btn-default btn-sm" %>
-
+        <%#= link_to "Comment", "#comment-textarea", class: "btn btn-default btn-sm" %>
         <% if can? :manage, @post %>
-        <%= link_to "Edit", edit_post_path, class:"btn btn-default btn-sm" %>  <%= link_to "Delete", @post, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-default btn-sm" %>
+        <%= link_to fa_icon('pencil'), edit_post_path, class:"btn btn-default btn-sm" %>  <%= link_to fa_icon('trash-o'), @post, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-default btn-sm" %>
         <% end %>
         <% end %>
 
         <% fav = @post.fav_for(current_user) %>
         <% if fav %>
-        <%= link_to fa_icon('heart'), post_favourite_path(@post, fav), method: :delete  %>
+        <%= link_to fa_icon('heart'), post_favourite_path(@post, fav), method: :delete,  class:"btn btn-default btn-sm"  %>
         <%#= link_to "Added to Favourites!!", post_favourite_path(@post, fav), method: :delete, class: "btn btn-danger btn-sm"  %>
         <% else %>
-        <%= link_to fa_icon('heart-o'), post_favourites_path(@post), method: :post  %>
+        <%= link_to fa_icon('heart-o'), post_favourites_path(@post), method: :post,  class:"btn btn-default btn-sm"  %>
         <%#= link_to "Add to Favourites", post_favourites_path(@post), method: :post, class: "btn btn-default btn-sm"  %>
         <% end %>
         <span class="badge">(<%= @post.favourite_users.count %>)</span>
@@ -44,39 +43,18 @@
   </div>
   <!-- <hr /> -->
   <div class="comments-container">
-    <div class="comments">
-      <p><strong>THIS POST HAS <%= @comments.size %> COMMENTS:</strong></p>
+    <p><strong>THIS POST HAS <%= @comments.size %> COMMENTS:</strong></p>
+    <ul id="comments">
+      <% @comments.each do |x| %>
+      <%= render "comments/comment", comment:x %>
+      <% end %>
+    </ul>
 
-      <% if @comments.size > 0 %>
-      <ul>
-        <% @comments.each do |x| %>
-        <li class="comments"><%= x[:body] %> <br>
-          <span class="footer"><%= x[:created_at] %> by <%=link_to x.user.full_name, user_path(x.user) %>
-            <% if can? :destroy, x %>
-            <%= link_to "Delete", post_comment_path(@post, x), method: :delete, data: {confirm: "Are you sure?"}, class:"btn btn-default btn-xs"%>
-            <% end %>
-            <% if can? :manage, x %>
-            <%= link_to "Edit", post_comment_path(@post, x),class:"btn btn-default btn-xs" %>
-            <% end %>
-          </span></li>
-          <% end %>
-        </ul>
-        <% end %>
-      </div>
-
-      <div class="comments">
-        <% if user_signed_in? %>
-        <%= form_for [@post, Comment.new] do |f|  %>
-        <div class="form-group">
-          <%= f.label :body, value="Comment" %><br/>
-          <%= f.text_area :body , class: "form-control", id: "comment-textarea", rows: "3" %>
-          <%= f.hidden_field :post_id, value: @post.id %>
-        </div>
-        <div class="form-group">
-          <%= f.submit class:"btn btn-info" %>
-        </div>
-        <% end %>
-        <% else %>
-        <%= link_to "Log in", new_session_path %> to leave a comment!</div>
-        <% end %>
-      </div>
+    <% if user_signed_in? %>
+    <div id='new-comment-form'>
+      <%= render 'comments/form' %>
+    </div>
+    <% else %>
+    <p><%= link_to "Log in", new_session_path %> to leave a comment!</p>
+    <% end %>
+  </div>

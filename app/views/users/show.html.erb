@@ -8,6 +8,7 @@
         <p>Last signed in:  <br> <%= @user.last_signed_in.strftime("%d-%b-%Y at %I:%M%p")
         %></p>
         <p>Total posts: <%= @user_post_count %></p>
+        <p><%= link_to "MY POSTS", root_path %></p>
       </div>
     </div>
 

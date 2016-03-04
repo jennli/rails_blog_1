@@ -13,11 +13,17 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new comment_params
     @comment.user = current_user
-    if @comment.save
-    else
-      flash[:alert] = "Comment exists."
+    respond_to do |format|
+      if @comment.save
+         PostMailer.notify_post_owner(@comment).deliver_now
+        format.html{redirect_to post_path(@post), notice:"comment success"}
+        format.js{render :create_success}
+      else
+        format.html{redirect_to post_path(@post), alert:"comment exists"}
+        format.js{render :create_failure}
+      end
+
     end
-    redirect_to post_path(@post)
   end
 
   def update
