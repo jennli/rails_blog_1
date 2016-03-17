@@ -1,0 +1,9 @@
+<li><%= comment[:body] %> <br>
+  <span class="footer"><%= formatted_time(comment[:created_at]) %> by <%=link_to comment.user.full_name, user_path(comment.user) %><br>
+    <% if can? :destroy, comment %>
+    <%= link_to fa_icon("trash"), post_comment_path(@post, comment), method: :delete, data: {confirm: "Are you sure?"}%>
+    <% end %>
+    <% if can? :manage, comment %>
+    <%= link_to fa_icon('pencil'), post_comment_path(@post, comment) %>
+    <% end %>
+  </span></li>

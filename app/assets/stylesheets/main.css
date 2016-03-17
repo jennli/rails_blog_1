@@ -1,0 +1,83 @@
+.banner{
+  width: 47%;
+  height:20%;
+}
+/*.border{
+  padding-top: 10%;
+  opacity: 0.7;
+  width: 100%;
+}*/
+@media screen and (min-width: 800px) {
+  body {
+    background-image: url("/images/butterflyLove2.gif");
+    background-size: 100%;
+  }
+  .post-container, .comments-container, .auth-container{
+    background-color:white;
+    margin-left: 22%;
+    margin-right: 30%;
+    opacity: 0.9;
+  }
+
+  #new_comment{
+    padding: 0 !important;
+  }
+
+}
+.post-container, .comments-container, .auth-container{
+  padding: 0 3% 3% 3%;
+  /*border-radius: 5%;*/
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+}
+.title-image{
+  float:left;
+}
+
+.directory{
+  text-align: center;
+}
+
+.post-title{
+padding-top: 10%;
+/*color: rgb(85, 175, 247);*/
+color: grey;
+  font-size: 20px;
+  font-family:sans-serif;
+}
+/*.post-title a{
+  font-size: 20px;
+}*/
+
+.post-body-preview{
+  /*font-family: monospace;*/
+  border-bottom: 1px dashed;
+ /*-webkit-border-image: url(border.png) 30 stretch;*/
+  padding: 0 10% 10% 10%;
+}
+.footer{
+  font-family: monospace;
+  font-size: 10px;
+  color:grey;
+}
+#comments{
+  list-style-image: url('/images/strawberry.png');
+}
+/*textarea {
+  resize: none;
+}*/
+/*.comments{
+  border-collapse: collapse;
+  font-family:sans-serif;
+  font-size-adjust: auto;
+}*/
+
+form{
+  padding:10%;
+}
+i{
+  color:grey;
+}
